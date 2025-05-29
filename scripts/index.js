@@ -8,6 +8,12 @@ text_input.addEventListener("keypress", (e) => {
   if (e.key == "Enter") addTask();
 });
 
+function deleteCompleted() {
+  for (const task of tasks) {
+    if (task.status) deleteTask(task.id);
+  }
+}
+
 /**
  * Renders all tasks from the tasks array
  * And updates their state
