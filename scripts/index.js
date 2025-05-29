@@ -58,7 +58,8 @@ function renderTasksMarkup() {
                       >
                     ${task.title}
                     </label>
-                    <sub>${task.date}</sub>
+                    <br>
+                    <label class="date">Date: ${task.date}</label>
                     </div>
                     <button class="delete-button" onclick="deleteTask(${
                       task.id
