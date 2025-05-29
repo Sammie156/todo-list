@@ -10,6 +10,22 @@
   <body>
     <h1 class="page-heading">TODO Application</h1>
 
+    
+    <div class="task-container">
+      <div class="task-holder">
+        <label id="996" style="font-size:medium; font-weight:500" class="">Dummy Task 1</label>
+        <button class="delete-button" onclick="deleteTask(996)">Delete</button>
+      </div>
+      <div class="task-holder">
+        <label id="995" style="font-size:medium; font-weight:500" class="">Dummy Task 3</label>
+        <button class="delete-button" onclick="deleteTask(995)">Delete</button>
+      </div>
+      <div class="task-holder">
+        <label id="992" style="font-size:medium; font-weight:500" class="">Dummy Task 2</label>
+        <button class="delete-button" onclick="deleteTask(992)">Delete</button>
+      </div>
+    </div>
+    
     <div class="add">
       <input type="text" placeholder="Add New Task" size="45" id="add-task" />
       <input
@@ -19,11 +35,6 @@
         onclick="addTask()"
       />
     </div>
-
-    <div class="task-container">
-
-    </div>
-
     <script src="scripts/index.js"></script>
   </body>
 </html>

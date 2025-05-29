@@ -2,6 +2,14 @@
   font-family: "Courier New", Courier, monospace;
 }
 
+h1 {
+    color:azure;
+}
+
+.task-icon:hover {
+    content:url("assets/hover-circle.svg");
+}
+
 .page-heading {
   text-align: center;
 }
@@ -23,11 +31,15 @@ input#add-task {
 
 .task-holder {
     display: flex;
+    padding: 5px 5px;
     justify-content: space-between;
     width: 500px;
-    background-color: gainsboro;
-    border: 1px;
-    border-style: dotted;
+    color: rgb(240, 240, 240);
+    background-color: rgb(54, 54, 54);
+    border-color: black;
+    border: 2px;
+    border: 1px dashed black;
+    border-radius: 6px;
     transition: 0.3s ease;
 }
 
@@ -66,5 +78,5 @@ input.add-button:hover {
 body {
     display: grid;
     place-items: center;
-    background-color: rgb(237, 212, 181);
+    background-color: rgb(28, 28, 28);
 }

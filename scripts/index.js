@@ -2,11 +2,12 @@ let tasks = [];
 let i = 0;
 let tasks_markup = [];
 const task_listElement = document.querySelector(".task-container");
+
 const text_input = document.querySelector("#add-task");
 
 text_input.addEventListener("keypress", (e) => {
   if (e.key == "Enter") addTask();
-})
+});
 
 /**
  * Renders all tasks from the tasks array
@@ -20,11 +21,15 @@ function renderTasksMarkup() {
       .map((task) => {
         return `
                 <div class="task-holder">
-                    <label id=${task.id} style="font-size:medium; font-weight:500" class="${task.status ? "done":""}"}>
-                        <input type="checkbox" ${task.status ? "checked":""}>
-                        ${task.title}
+                    <label id=${task.id} 
+                           style="font-size:medium; font-weight:500" 
+                           class="${task.status ? "done" : ""}"
+                    >
+                    ${task.title}
                     </label>
-                    <button class="delete-button" onclick="deleteTask(${task.id})">Delete</button>
+                    <button class="delete-button" onclick="deleteTask(${
+                      task.id
+                    })">Delete</button>
                 </div>
       `;
       })
@@ -32,17 +37,19 @@ function renderTasksMarkup() {
   `;
 
   task_listElement.innerHTML = markup;
-  const all_tasks = document.querySelectorAll("label");
+  // const all_tasks = document.querySelectorAll("label");
 
-  for (const task of all_tasks) {
-    task.addEventListener("click", function () {
-      const found = tasks.find((t) => t.id == task.id);
-      if (found) {
-        task.classList.toggle("done");
-        found.status = !found.status;
-      }
-    });
-  }
+  // for (const task of all_tasks) {
+  //   task.addEventListener("click", function () {
+  //     const found = tasks.find((t) => t.id == task.id);
+  //     if (found) {
+  //       console.log(task);
+  //       task.classList.toggle("done");
+  //       console.log(task);
+  //       found.status = !found.status;
+  //     }
+  //   });
+  //
 }
 
 function deleteTask(task_id) {
