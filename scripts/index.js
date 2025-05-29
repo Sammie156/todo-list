@@ -26,7 +26,7 @@ function renderTasksMarkup() {
       .map((task) => {
         return `
                 <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
-                    <label style="font-size:medium; font-weight:500" 
+                    <label style="font-size:20px; padding-top:5px; font-weight:700" 
                            class="${task.status ? "done" : ""}"
                     >
                     ${task.title}

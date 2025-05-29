@@ -27,8 +27,9 @@ h1 {
 }
 
 input#add-task {
+    font-size: 15px;
     border-radius: 12px;
-    padding: 8px;
+    padding: 15px;
     transition: background-color 0.3s ease-in-out;
 }
 
@@ -68,9 +69,10 @@ input#add-task:hover {
 }
 
 input.add-button {
+    font-size: 15px;
     border-radius: 10px;
     border: ridge;
-    padding: 8px;
+    padding: 15px;
     transition: 0.3s ease;
 }
 
