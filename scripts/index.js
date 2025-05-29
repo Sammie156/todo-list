@@ -2,6 +2,11 @@ let tasks = [];
 let i = 0;
 let tasks_markup = [];
 const task_listElement = document.querySelector(".task-container");
+const text_input = document.querySelector("#add-task");
+
+text_input.addEventListener("keypress", (e) => {
+  if (e.key == "Enter") addTask();
+})
 
 /**
  * Renders all tasks from the tasks array
