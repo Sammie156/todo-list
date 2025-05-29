@@ -20,6 +20,8 @@ h1 {
 }
 
 .done {
+    color: rgb(8, 236, 8);
+    font-weight: 600;
     text-decoration: line-through;
 }
 
@@ -59,7 +61,7 @@ input#add-task:hover {
 }
 
 .delete-button:hover {
-    background-color: rgb(246, 96, 96);
+    background-color: rgb(236, 32, 32);
     font-weight: bold;
 }
 
