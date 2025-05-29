@@ -1,0 +1,63 @@
+h1 {
+    animation: 1s slide-in-top ease-in-out;
+}
+
+.add-button {
+    animation: 1s slide-in-right ease-in-out;
+}
+
+#add-task {
+    animation: 1s slide-in-left ease-in-out;
+}
+
+.task-container {
+    animation: 1s slide-in-bottom ease-in-out;
+}
+
+@keyframes slide-in-bottom {
+    from {
+        translate: 0 150vh;
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
+
+@keyframes slide-in-top {
+    from {
+        translate: 0 -150vh;
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        translate: 150vh 0;
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        translate: -150vh 0;
+        scale: 200% 1;
+    }
+
+    to {
+        translate: 0 0;
+        scale: 100% 1;
+    }
+}
