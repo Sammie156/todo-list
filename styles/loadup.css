@@ -2,6 +2,10 @@ h1 {
     animation: 1s slide-in-top ease-in-out;
 }
 
+#task-date {
+    animation: 1s slide-in-bottom ease;
+}
+
 .add-button {
     animation: 1s slide-in-right ease-in-out;
 }

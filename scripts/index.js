@@ -27,11 +27,15 @@ function renderTasksMarkup() {
         if (!task.status) {
           return `
                 <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
-                    <label style="font-size:20px; padding-top:5px; font-weight:700" 
-                           class="${task.status ? "done" : ""}"
-                    >
+                    <div class="task-details" style="padding-top:5px;" >
+                      <label style="font-size:20px;font-weight:700" 
+                             class="${task.status ? "done" : ""}"
+                      >
                     ${task.title}
                     </label>
+                    <br>
+                    <label class="date">Date: ${task.date}</label>
+                    </div>
                     <button class="delete-button" onclick="deleteTask(${
                       task.id
                     })">Delete</button>
@@ -48,11 +52,14 @@ function renderTasksMarkup() {
         if (task.status) {
           return `
                 <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
-                    <label style="font-size:20px; padding-top:5px; font-weight:700" 
-                           class="${task.status ? "done" : ""}"
-                    >
+                    <div class="task-details" style="padding-top:5px;">
+                      <label style="font-size:20px;  font-weight:700" 
+                             class="${task.status ? "done" : ""}"
+                      >
                     ${task.title}
                     </label>
+                    <sub>${task.date}</sub>
+                    </div>
                     <button class="delete-button" onclick="deleteTask(${
                       task.id
                     })">Delete</button>
@@ -63,7 +70,7 @@ function renderTasksMarkup() {
       .join(`<br>`)}
   `
 
-  task_listElement.innerHTML = `${incompleteMarkup} <br> ${completeMarkup}`;
+  task_listElement.innerHTML = `${incompleteMarkup} ${completeMarkup}`;
 }
 
 function taskComplete(id) {
@@ -71,8 +78,6 @@ function taskComplete(id) {
     if (task.id == id)
       task.status = !task.status;
   });
-
-
 
   renderTasksMarkup();
 }
@@ -98,10 +103,12 @@ function deleteTask(task_id) {
  */
 function addTask() {
   const task_name = document.getElementById("add-task").value;
+  const task_date = document.getElementById("task-date").value;
   const task = {
     title: task_name,
     status: false,
     id: i++,
+    date: task_date,
   };
 
   tasks.push(task);
