@@ -21,10 +21,11 @@ function deleteCompleted() {
 function renderTasksMarkup() {
   console.log(tasks);
 
-  const markup = `
+  const incompleteMarkup = `
     ${tasks
       .map((task) => {
-        return `
+        if (!task.status) {
+          return `
                 <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
                     <label style="font-size:20px; padding-top:5px; font-weight:700" 
                            class="${task.status ? "done" : ""}"
@@ -35,12 +36,34 @@ function renderTasksMarkup() {
                       task.id
                     })">Delete</button>
                 </div>
-      `;
+          `;
+        }
       })
       .join(`<br>`)}
   `;
 
-  task_listElement.innerHTML = markup;
+  const completeMarkup = `
+    ${tasks
+      .map((task) => {
+        if (task.status) {
+          return `
+                <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
+                    <label style="font-size:20px; padding-top:5px; font-weight:700" 
+                           class="${task.status ? "done" : ""}"
+                    >
+                    ${task.title}
+                    </label>
+                    <button class="delete-button" onclick="deleteTask(${
+                      task.id
+                    })">Delete</button>
+                </div>
+          `;
+        }
+      })
+      .join(`<br>`)}
+  `
+
+  task_listElement.innerHTML = `${incompleteMarkup} <br> ${completeMarkup}`;
 }
 
 function taskComplete(id) {
@@ -48,6 +71,8 @@ function taskComplete(id) {
     if (task.id == id)
       task.status = !task.status;
   });
+
+
 
   renderTasksMarkup();
 }
