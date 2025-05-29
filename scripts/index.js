@@ -20,9 +20,8 @@ function renderTasksMarkup() {
     ${tasks
       .map((task) => {
         return `
-                <div class="task-holder">
-                    <label id=${task.id} 
-                           style="font-size:medium; font-weight:500" 
+                <div class="task-holder" id=${task.id} onclick="taskComplete(${task.id})">
+                    <label style="font-size:medium; font-weight:500" 
                            class="${task.status ? "done" : ""}"
                     >
                     ${task.title}
@@ -37,6 +36,8 @@ function renderTasksMarkup() {
   `;
 
   task_listElement.innerHTML = markup;
+
+  // Commented for future reference
   // const all_tasks = document.querySelectorAll("label");
 
   // for (const task of all_tasks) {
@@ -50,6 +51,15 @@ function renderTasksMarkup() {
   //     }
   //   });
   //
+}
+
+function taskComplete(id) {
+  tasks.find(task => {
+    if (task.id == id)
+      task.status = !task.status;
+  });
+
+  renderTasksMarkup();
 }
 
 function deleteTask(task_id) {
