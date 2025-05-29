@@ -13,27 +13,15 @@ function renderTasksMarkup() {
   const markup = `
     ${tasks
       .map((task) => {
-        if (task.status) {
-          return `
+        return `
                 <div class="task-holder">
-                    <label id=${task.id} style="font-size:medium; font-weight:500" class="done"}>
-                        <input type="checkbox" checked>
+                    <label id=${task.id} style="font-size:medium; font-weight:500" class="${task.status ? "done":""}"}>
+                        <input type="checkbox" ${task.status ? "checked":""}>
                         ${task.title}
                     </label>
                     <button class="delete-button" onclick="deleteTask(${task.id})">Delete</button>
                 </div>
-            `;
-        } else {
-          return `
-                <div class="task-holder">
-                    <label id=${task.id} style="font-size:medium; font-weight:500">
-                        <input type="checkbox">
-                        ${task.title}
-                    </label>
-                    <button class="delete-button" onclick="deleteTask(${task.id})">Delete</button>
-                </div>
-            `;
-        }
+      `;
       })
       .join(`<br>`)}
   `;
@@ -45,8 +33,8 @@ function renderTasksMarkup() {
     task.addEventListener("click", function () {
       const found = tasks.find((t) => t.id == task.id);
       if (found) {
-        task.classList.add("done");
-        found.status = true;
+        task.classList.toggle("done");
+        found.status = !found.status;
       }
     });
   }
