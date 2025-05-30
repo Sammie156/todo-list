@@ -35,8 +35,7 @@ h1 {
 
 .done {
     color: rgb(2, 252, 27);
-    font-weight: 600;
-    text-decoration: line-through rgb(12, 246, 4) 1px;
+    font-weight: 500;
 }
 
 input#add-task {

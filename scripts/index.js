@@ -1,6 +1,5 @@
 let tasks = [];
 let i = 0;
-let tasks_markup = [];
 const task_listElement = document.querySelector(".task-container");
 
 const text_input = document.querySelector("#add-task");
